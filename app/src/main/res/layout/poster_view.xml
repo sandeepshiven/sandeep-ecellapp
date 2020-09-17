@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="12dp"
+    android:elevation="90dp"
+    android:theme="@style/Theme.MaterialComponents">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#895BDA"
+
+    
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/card_image"
+            >
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Title"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="30dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/card_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Card description"
+            android:textAlignment="textStart"
+            android:textColor="#ffff"
+            android:paddingBottom="20dp">
+
+        </TextView>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+
+            android:text="Read More"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="#9D10B5"
+            app:strokeWidth="2dp"
+            android:textAlignment="center"
+            android:textColor="#9D10B5"
+            app:backgroundTint="#ffff"
+            app:elevation="10dp"
+            android:textSize="15dp"
+            android:padding="15dp"
+            android:id="@+id/readMoreButton">
+
+        </com.google.android.material.button.MaterialButton>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

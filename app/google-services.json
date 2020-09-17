@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "292406315204",
+    "firebase_url": "https://ecellteam.firebaseio.com",
+    "project_id": "ecellteam",
+    "storage_bucket": "ecellteam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292406315204:android:afbde9ed1af6b832f4e191",
+        "android_client_info": {
+          "package_name": "ecell.app.ecellteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292406315204-35no9mbb95of16q9826478rn0pnqbnpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVSuzTCKuWgRX6PA02Yt06oZXNUGpHZ0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292406315204-35no9mbb95of16q9826478rn0pnqbnpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

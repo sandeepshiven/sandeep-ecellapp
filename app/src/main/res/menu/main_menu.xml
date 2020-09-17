@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="HOME" />
+        <item
+            android:id="@+id/announcement1"
+            android:icon="@drawable/announcement"
+            android:title="ANNOUNCEMENT" />
+        <item
+            android:id="@+id/Leadership"
+            android:icon="@drawable/cloud"
+            android:title="LEADERBOARD" />
+        <item
+            android:id="@+id/teamchat1"
+            android:icon="@drawable/group"
+            android:title="TEAMPROFILE" />
+        <item
+            android:id="@+id/Logout"
+            android:icon="@drawable/locologout"
+            android:title="LOGOUT" />
+
+    </group>
+
+</menu>

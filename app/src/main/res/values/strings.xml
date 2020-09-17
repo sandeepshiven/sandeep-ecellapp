@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">EcellTeam</string>
+
+    <string-array name="department">
+
+        <item>Choose Your Department</item>
+        <item>Web Development Group</item>
+        <item>Designing Group</item>
+        <item>Content Group</item>
+        <item>Corporate Group</item>
+        <item>Media Group</item>
+
+    </string-array>
+</resources>
