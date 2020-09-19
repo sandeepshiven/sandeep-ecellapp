@@ -7,44 +7,44 @@
     tools:context=".LrAcitivity">
 
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="262dp"
-        android:layout_height="88dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoecell" />
+  <ImageView
+      android:id="@+id/logoImage"
+      android:layout_width="262dp"
+      android:layout_height="88dp"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="120dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/logoecell" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:text="Login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/button_design"
-        android:layout_below="@+id/logoImage"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+  <Button
+      android:id="@+id/loginButton"
+      android:layout_width="200dp"
+      android:layout_height="45dp"
+      android:text="Login"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="141dp"
+      android:background="@drawable/button_design"
+      android:layout_below="@+id/logoImage"
+      android:textColor="@android:color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:text="Register"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_design"
-        android:layout_below="@+id/loginButton"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+  <Button
+      android:id="@+id/registerButton"
+      android:layout_width="200dp"
+      android:layout_height="45dp"
+      android:text="Register"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="30dp"
+      android:background="@drawable/button_design"
+      android:layout_below="@+id/loginButton"
+      android:textColor="@android:color/white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
 </RelativeLayout>

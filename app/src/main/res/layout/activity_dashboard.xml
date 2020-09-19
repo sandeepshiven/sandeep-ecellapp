@@ -17,16 +17,25 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu" />
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        >
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/heandLinearLayout"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <ImageView
                 android:id="@+id/drawer"
@@ -43,7 +52,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="85dp"
-                android:fontFamily="cursive"
+                android:fontFamily="serif-monospace"
                 android:text="E-CELL RGPV"
                 android:textAlignment="center"
                 android:textColor="@color/cardview_light_background"
@@ -51,15 +60,15 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-
         <GridLayout
             android:id="@+id/gridlayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="30dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/heandLinearLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="30dp"
             android:columnCount="2"
             android:rowCount="4">
 
@@ -355,5 +364,6 @@
 
         </GridLayout>
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>

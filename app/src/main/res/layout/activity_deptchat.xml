@@ -14,6 +14,7 @@
         android:id="@+id/group_chat_bar_layout"
 
         layout="@layout/app_bar_layout"
+
         ></include>
 
 

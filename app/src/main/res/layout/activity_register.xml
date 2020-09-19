@@ -8,27 +8,15 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="262dp"
+        android:layout_width="222dp"
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoecell" />
-
-    <TextView
-        android:id="@+id/messageText"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/logoImage"
-        android:layout_marginTop="75dp"
-        android:gravity="center"
-        android:textColor="#C10606"
-        android:textSize="20dp"
-        android:visibility="invisible" />
-
 
 
     <EditText
@@ -42,7 +30,7 @@
         android:inputType="textEmailAddress"
         android:padding="4dp"
         android:drawableStart="@drawable/email"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="106dp"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="17dp"
         />
@@ -81,20 +69,20 @@
         />
 
 
-        <Spinner
-            android:id="@+id/departmentSpinner"
-            android:layout_width="377dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/passwordTxt"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="17dp"
-            android:background="@drawable/inputs"
-            android:drawableStart="@drawable/password"
-            android:hint="Choose Your Department"
-            android:inputType="textPassword"
-            android:padding="4dp" />
+    <Spinner
+        android:id="@+id/departmentSpinner"
+        android:layout_width="377dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/passwordTxt"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="17dp"
+        android:background="@drawable/inputs"
+        android:drawableStart="@drawable/password"
+        android:hint="Choose Your Department"
+        android:inputType="textPassword"
+        android:padding="4dp" />
 
 
     <Button
