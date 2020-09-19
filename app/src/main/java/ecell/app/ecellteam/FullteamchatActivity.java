@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import android.view.WindowManager;
 
 import static android.util.TypedValue.COMPLEX_UNIT_SP;
 
@@ -62,6 +63,8 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullteamchat);
+        
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //getting values through intent from dashboard activity
         groupChatName = getIntent().getExtras().get("groupName").toString();
@@ -188,8 +191,15 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
             else{
                 addMessageBox(otherMsgFormat ,2);
             }
-            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            
         }
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(View.FOCUS_DOWN);
+            }
+        });
+
     }
 
     //method to save data to database
