@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class LrAcitivity extends AppCompatActivity {
 
+    //making button objects
     private Button loginBtn;
     private Button registerBtn;
 
@@ -17,9 +18,11 @@ public class LrAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lr_acitivity);
 
+        //initializing objects
         loginBtn = (Button) findViewById(R.id.loginButton);
         registerBtn = (Button) findViewById(R.id.registerButton);
 
+        //setting onClickListener to get to the login activity
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,12 +30,20 @@ public class LrAcitivity extends AppCompatActivity {
             }
         });
 
+        //setting onClickListener to get to the register activity
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LrAcitivity.this,RegisterActivity.class));
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
 
     }
 }

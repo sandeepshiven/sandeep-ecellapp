@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
             passwordText.setError("Password must contain at least 6 characters");
         }
 
-        //if everything is correct then matching email and password with database using FirebaseAuth
+        //if .everything is correct then matching email and password with database using FirebaseAuth
 
         else {
 

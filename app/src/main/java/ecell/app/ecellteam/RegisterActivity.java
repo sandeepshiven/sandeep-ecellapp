@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     //making String Object
     private String department;
 
-    //making regular expression for password
+    //making. regular expression for password
     private static final Pattern passwordPattern = Pattern.compile("^" +
             "(?=.*[a-z])" +           //at least 1 lower case letter
             "(?=.*[@#$%^&+=])" +      //at least 1 special character

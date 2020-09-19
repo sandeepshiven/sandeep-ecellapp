@@ -4,12 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.TextViewCompat;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,20 +35,27 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 
 public class FullteamchatActivity<User> extends AppCompatActivity {
 
 
+    //making View objects
     private Toolbar mToolBar;
-    private ImageButton sendMessageButton;
-    private EditText userMessageInput;
-    private ScrollView mScrollView;
-    private TextView displayTextMessage;
+    private ImageView sendButton;
+    private EditText messageArea;
+    private ScrollView scrollView;
 
+    //making layout objects
+    private LinearLayout layout;
+
+    //making Firebase and database objects
     private FirebaseAuth mAuth;
     private DatabaseReference userReference , groupNameReference , groupMessageKeyRef;
 
-    private String groupChatName , currentUserId , currentUserName , currentTime , currentDate;
+    //making String objects
+    private String groupChatName , currentUserId , currentUserName , currentTime , currentDate ,username , message;
 
 
     @Override
@@ -48,41 +63,50 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullteamchat);
 
+        //getting values through intent from dashboard activity
         groupChatName = getIntent().getExtras().get("groupName").toString();
+        username = getIntent().getExtras().get("userName").toString();
 
+        //setting FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
+
+        //getting current user
         currentUserId = mAuth.getCurrentUser().getUid();
 
+        //giving required references to the database objects
         userReference = FirebaseDatabase.getInstance().getReference().child("Users");
         groupNameReference = FirebaseDatabase.getInstance().getReference().child("Groups").child(groupChatName);
 
-        InitializeFielda();
+        //calling method to initialize the view objects
+        InitializeFields();
+        scrollView.scrollTo(0,scrollView.getBottom());
 
-
+        //calling method to get user information
         getUserInfo();
 
 
-        sendMessageButton.setOnClickListener(new View.OnClickListener() {
+        sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //calling method to save messages to database
                 saveMessageInToDatabase();
 
-                userMessageInput.setText("");
+                //clearing editText area for next message
+                messageArea.setText("");
 
-                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                //making scroll view to scroll down to the most recent message
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         groupNameReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                //checking if messages existed
                 if (snapshot.exists()){
-
+                    //calling method to show all the messages
                     DisplayMessages(snapshot);
                 }
             }
@@ -109,11 +133,42 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
         });
     }
 
+
+    //method to generate textView
+    public void addMessageBox(String messageFormat , int key){
+
+        //setting textView and its properties
+        TextView textView = new TextView(FullteamchatActivity.this);
+        textView.setTextSize(18);
+        textView.setTypeface(Typeface.DEFAULT_BOLD);
+        textView.setText(messageFormat);
+
+        //setting layout with textView
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(15, 15, 15, 15);
+        textView.setLayoutParams(lp);
+
+        //checking user
+        if(key == 1) {
+            lp.gravity = Gravity.RIGHT;
+            textView.setBackgroundResource(R.drawable.rounded_corner1);
+        }
+        else{
+            textView.setBackgroundResource(R.drawable.rounded_corner2);
+        }
+
+        //adding layout to textView
+        layout.addView(textView);
+        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+    }
+
     private void DisplayMessages(DataSnapshot snapshot) {
 
 
+        //using iterator to get the messages
         Iterator iterator = snapshot.getChildren().iterator();
 
+        //using loop to print all the messages
         while (iterator.hasNext()){
 
             String chatDate = (String) ((DataSnapshot)iterator.next()).getValue();
@@ -122,34 +177,48 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
             String chatTime = (String) ((DataSnapshot)iterator.next()).getValue();
 
 
-            displayTextMessage.append(chatName + " : \n" + chatMessage + "\n" + chatTime + "     " + chatDate + "\n\n\n\n");
+            //setting messages format
+            String myMsgFormat = "You :-  " + chatTime + "\n\n" + chatMessage;
+            String otherMsgFormat = chatName + "  "+ chatTime + ":-\n\n" + chatMessage;
 
-            mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
-
-
+            //checking if the message is been sent by the user itself and calling method to generate text view
+            if(chatName.equals(username)){
+                addMessageBox(myMsgFormat , 1);
+            }
+            else{
+                addMessageBox(otherMsgFormat ,2);
+            }
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
-
     }
 
+    //method to save data to database
     private void saveMessageInToDatabase() {
 
-        String message = userMessageInput.getText().toString();
+        //getting message from editText
+        message = messageArea.getText().toString();
+
+        //setting specific key for every message
         String messageKey = groupNameReference.push().getKey();
 
-
+        //checking weather text is empty or not
         if (TextUtils.isEmpty(message)){
             Toast.makeText(this, "Please Write Something", Toast.LENGTH_SHORT).show();
         }else {
+
+            //getting current date
             Calendar calForDate = Calendar.getInstance();
             SimpleDateFormat currentDateFormat = new SimpleDateFormat("MMM dd, yyyy");
             currentDate = currentDateFormat.format(calForDate.getTime());
 
 
+            //getting current time
             Calendar calForTime = Calendar.getInstance();
             SimpleDateFormat currentTimeFormat = new SimpleDateFormat("hh:mm a");
             currentTime = currentTimeFormat.format(calForTime.getTime());
 
 
+            //storing data in database
             HashMap<String , Object> groupMessageKey = new HashMap<>();
             groupNameReference.updateChildren(groupMessageKey);
             groupMessageKeyRef = groupNameReference.child(messageKey);
@@ -161,11 +230,10 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
             messageInfoMap.put("time",currentTime);
 
             groupMessageKeyRef.updateChildren(messageInfoMap);
-
-
         }
     }
 
+    //method to get name of user who send the message
     private void getUserInfo() {
 
         userReference.child(currentUserId).addValueEventListener(new ValueEventListener() {
@@ -173,7 +241,6 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     currentUserName = snapshot.child("name").getValue().toString();
-
                 }
             }
 
@@ -182,24 +249,20 @@ public class FullteamchatActivity<User> extends AppCompatActivity {
 
             }
         });
-
     }
 
 
+    //initializing objects
+    private void InitializeFields() {
 
-    private void InitializeFielda() {
         mToolBar = (Toolbar) findViewById(R.id.group_chat_bar_layout);
         setSupportActionBar(mToolBar);
+        //setting name of group chat
         getSupportActionBar().setTitle(groupChatName);
 
-
-        sendMessageButton = (ImageButton) findViewById(R.id.send_message_button);
-        userMessageInput = (EditText) findViewById(R.id.input_group_message);
-        displayTextMessage = (TextView) findViewById(R.id.group_chat_text_display);
-        mScrollView = (ScrollView) findViewById(R.id.my_scroll_view);
-
-        displayTextMessage.setText("");
-
-
+        layout = (LinearLayout)findViewById(R.id.layout1);
+        sendButton = (ImageView)findViewById(R.id.sendButton);
+        messageArea = (EditText)findViewById(R.id.messageArea);
+        scrollView = (ScrollView)findViewById(R.id.scrollView);
     }
 }
