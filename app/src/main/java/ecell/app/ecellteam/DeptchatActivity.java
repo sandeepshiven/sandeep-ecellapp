@@ -39,6 +39,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import android.view.WindowManager;
 
 public class DeptchatActivity extends AppCompatActivity {
 
@@ -95,6 +96,9 @@ public class DeptchatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deptchat);
+        
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
 
         //getting values through intent from dashboard activity
         groupChatName = getIntent().getExtras().get("deptName").toString();
@@ -219,9 +223,17 @@ public class DeptchatActivity extends AppCompatActivity {
                 addMessageBox(otherMsgFormat ,2);
             }
 
-            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            
 
         }
+        
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(View.FOCUS_DOWN);
+            }
+        });
+
 
     }
 
