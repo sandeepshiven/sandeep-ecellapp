@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ReadMoreActivity"></activity>
         <activity android:name=".InventoryActivity" />
-        <activity android:name=".CurrentworkActivity" />
+        <activity android:name=".CurrentworkActivity" 
+                  android:theme="@style/AppTheme2"/>
         <activity android:name=".TeamprofileActivity" />
         <activity android:name=".LeaderboardActivity" />
         <activity android:name=".AnnouncementActivity" />
