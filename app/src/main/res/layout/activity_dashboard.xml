@@ -52,7 +52,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="85dp"
-                android:fontFamily="cursive"
+                android:fontFamily="serif-monospace"
                 android:text="E-CELL RGPV"
                 android:textAlignment="center"
                 android:textColor="@color/cardview_light_background"
@@ -61,8 +61,10 @@
         </LinearLayout>
 
         <GridLayout
+
                 android:id="@+id/gridlayout"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="@+id/heandLinearLayout"
                 app:layout_constraintStart_toStartOf="parent"

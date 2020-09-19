@@ -113,6 +113,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             email = firebaseUser.getEmail();
         } else {
             startActivity(new Intent(DashboardActivity.this, LrAcitivity.class));
+
         }
 
         getUserDept();
