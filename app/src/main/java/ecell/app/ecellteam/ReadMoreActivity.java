@@ -86,7 +86,7 @@ public class ReadMoreActivity extends AppCompatActivity {
         descView = findViewById(R.id.readMoreDesc);
 
         titleView.setText(title);
-        descView.setText(desc);
+        descView.setText(desc+"\n\n\n\n\n\n\n\n\n\n\n\n");
         Glide.with(getApplicationContext()).load(imageUrl).into(imageView);
 
         MaterialButton button = findViewById(R.id.shareButton);
@@ -129,7 +129,7 @@ public class ReadMoreActivity extends AppCompatActivity {
                         Uri imageUri = FileProvider.getUriForFile(ReadMoreActivity.this,
                                 ReadMoreActivity.this.getApplicationContext().getPackageName()+".provider", localFile);
 
-                        Log.i(";ajldfajd", imageUri.toString());
+                        //Log.i(";ajldfajd", imageUri.toString());
                         dialog.dismiss();
 
 
