@@ -4,34 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#040490"
+    android:background="@drawable/cardview"
     tools:context=".CurrentworkActivity">
+
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="165dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="172dp"
         android:text="Select Date"
-        app:backgroundTint="@android:color/holo_blue_light"
+        app:backgroundTint="@android:color/holo_red_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="155dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="91dp"
-        android:gravity="center"
-        android:text="Date"
-        android:textColor="@color/common_google_signin_btn_text_dark_pressed"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,75 +28,11 @@
         android:text="CURRENT WORK"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="30sp"
-        app:fontFamily="@font/lemonada_light"
+        app:fontFamily="@font/purple_purse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/headingTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="157dp"
-        android:gravity="center"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="36sp"
-        android:textStyle="bold|italic"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="321dp"
-        android:layout_marginTop="130dp"
-        android:scrollbarThumbHorizontal="@color/cardview_light_background"
-        android:scrollbarThumbVertical="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
-            <TextView
-                android:id="@+id/taskTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:gravity="start"
-                android:justificationMode="inter_word"
-                android:paddingLeft="15dp"
-                android:paddingTop="10dp"
-                android:paddingRight="15dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

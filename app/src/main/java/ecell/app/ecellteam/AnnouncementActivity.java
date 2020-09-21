@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -40,7 +41,7 @@ public class AnnouncementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_announcement);
 
         listItems = (ListView) findViewById(R.id.listView1);
-
+        button = findViewById(R.id.button);
         arrayList = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList) {
 
@@ -94,13 +95,5 @@ public class AnnouncementActivity extends AppCompatActivity {
         });
 
 
-
     }
 }
-
-
-
-
-
-
-

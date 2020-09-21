@@ -8,11 +8,11 @@
     android:orientation="vertical"
     tools:context=".AnnouncementActivity">
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="107dp"
+        android:background="@drawable/cardview"
         android:gravity="center"
         android:text="ANNOUNCEMENT"
         android:textColor="@color/cardview_light_background"
@@ -23,7 +23,7 @@
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#040490"
+        android:background="@drawable/cardview"
         android:cacheColorHint="@color/cardview_light_background"
         android:paddingLeft="15dp"
         android:paddingTop="10dp"
@@ -37,5 +37,3 @@
     </ListView>
 
 </LinearLayout>
-
-
