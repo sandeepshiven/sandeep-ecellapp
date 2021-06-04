@@ -178,6 +178,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 public void onComplete(@NonNull Task<Void> task) {
 
                     if (task.isSuccessful()){
+                        rootRef.child("Users").child(currentUserId).child("LeaderBoardScore").setValue(0);
                         SendUserToDashboardActivity();
                         Toast.makeText(RegisterActivity.this, "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
                         SendUserToDashboardActivity();
