@@ -1,5 +1,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name">EcellTeam</string>
+    <string name="app_name">Team Manager</string>
 
     <string-array name="department">
 
