@@ -114,6 +114,7 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
                 .setContentText(body)
                 .setContentInfo("Info");
         notificationManager.notify(new Random().nextInt(), notificationBuilder.build());
+
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 new Intent(this, SplashActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -121,9 +122,8 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
         notificationBuilder.setContentIntent(contentIntent);
 
 
-        // Gets an instance of the NotificationManager service
-        NotificationManager mNotificationManager =
-                (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(new Random().nextInt(), notificationBuilder.build());
     }
 
     @Override

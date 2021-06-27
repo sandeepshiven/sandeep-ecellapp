@@ -72,8 +72,15 @@ public class LeaderboardActivity extends AppCompatActivity {
                 members.clear();
                 for(DataSnapshot ds : snapshot.getChildren()) {
                     String name = ds.child("name").getValue(String.class);
+                    Log.i("name", name);
                     String department = ds.child("department").getValue(String.class);
+                    Log.i("department", department);
                     Integer score = ds.child("LeaderBoardScore").getValue(Integer.class);
+                    if(score == null){
+                        ds.child("LeaderBoardScore").getRef().setValue(0);
+                        score = 0;
+                    }
+                    Log.i("score", score.toString());
                     Member member = new Member();
                     member.setName(name);
                     member.setDepartment(department);
@@ -81,7 +88,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                     members.add(member);
                 }
                 Collections.sort(members, Collections.reverseOrder());
-                //Log.i("members", members.toString());
+
                 setupRecyclerView();
                 showChampions();
             }

@@ -3,7 +3,7 @@
 
     <string-array name="department">
 
-        <item>Choose Your Department</item>
+        <item>Please Choose Department</item>
         <item>Web Development Group</item>
         <item>Designing Group</item>
         <item>Content Group</item>
